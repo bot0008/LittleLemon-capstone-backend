@@ -9,10 +9,11 @@ urlpatterns = [
     path('', sayHello, name='sayHello'), 
     path('index/', views.index, name='index'),
     path('menu/', views.MenuItemsView.as_view(), name='menu'),
-    path('menu/<int:pk>', views.SingleMenuItemView.as_view()),
+    path('menu/<int:pk>/', views.SingleMenuItemView.as_view()),
     path('menu/menu-items/', views.MenuItemsView.as_view(), name='items'),
+    path('api-token-auth/', obtain_auth_token),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
-    path('api-token-auth/', obtain_auth_token),
+
     
 ]

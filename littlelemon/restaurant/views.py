@@ -8,6 +8,8 @@ from .serializers import BookingSerializer
 from rest_framework import  viewsets, permissions
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 # Create your views here.
 def sayHello(request):
@@ -30,6 +32,13 @@ class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
     permission_classes = [permissions.IsAuthenticated] 
+
+
+
+
+
+
+    
         
     
     

@@ -9,7 +9,7 @@ class Menu(models.Model):
     inventory = models.PositiveBigIntegerField()
     
     def __str__(self):
-        return self.title
+        return f'{self.title} : {str(self.price)}'
 class Booking(models.Model):
     name = models.CharField(max_length=255)
     no_of_guests = models.PositiveBigIntegerField()
