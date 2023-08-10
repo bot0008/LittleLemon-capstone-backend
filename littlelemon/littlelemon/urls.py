@@ -29,4 +29,6 @@ urlpatterns = [
     path('index.html', TemplateView.as_view(template_name='index.html'), name='index'),
     path('restaurant/menu/',include('restaurant.urls')),
     path('restaurant/booking/', include(router.urls)),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.authtoken')),
 ]
