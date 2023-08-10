@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from rest_framework import serializers
 
 # Create your models here.
 class Menu(models.Model):
@@ -14,4 +16,10 @@ class Booking(models.Model):
     booking_date = models.DateTimeField()
     
     def __str__(self):
-        return f"Booking by {self.customer_name} - {self.booking_date}"     
+        return f"Booking by {self.name} - {self.booking_date}"     
+    
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ['url', 'username', 'email', 'groups']   
