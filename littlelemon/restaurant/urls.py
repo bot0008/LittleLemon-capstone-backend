@@ -3,6 +3,7 @@ from django.urls import path, include
 from .views import sayHello
 from . import views 
 from djoser.views import TokenCreateView, TokenDestroyView
+from rest_framework.authtoken.views import obtain_auth_token
   
 urlpatterns = [ 
     path('', sayHello, name='sayHello'), 
@@ -12,5 +13,6 @@ urlpatterns = [
     path('menu/menu-items/', views.MenuItemsView.as_view(), name='items'),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
+    path('api-token-auth/', obtain_auth_token),
     
 ]

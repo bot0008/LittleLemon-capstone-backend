@@ -5,7 +5,9 @@ from .models import Menu
 from .serializers import MenuSerializer
 from .models import Booking
 from .serializers import BookingSerializer
-from rest_framework import viewsets, permissions
+from rest_framework import  viewsets, permissions
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
 
 # Create your views here.
 def sayHello(request):
@@ -15,6 +17,7 @@ def index(request):
     return render(request, 'index.html', {}) 
 
 class MenuItemsView(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
 
